@@ -1,4 +1,4 @@
-# shop
+# Todo List
 
 ## Project setup
 ```

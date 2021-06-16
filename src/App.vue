@@ -17,26 +17,18 @@ export default {
     TodoInput
 
   },
-  data() {
+
+  data: function (){
     return {
-    todos: [
-      {
-        id: 0,
-        title: 'test',
-        completed: true
-      },
-      {
-        id: 1,
-        title: 'test2',
-        completed: false
-      }
-    ]
-    }
+      todos: JSON.parse(localStorage.getItem('todos'))
+    };
   },
+
   methods: {
     addTodo(todo){
 
       this.todos.push(todo)
+      localStorage.setItem('todos',  JSON.stringify(this.todos));
     },
     removeItem(todo){
       let todoIndex = this.todos.indexOf(todo);
@@ -44,6 +36,7 @@ export default {
       console.log(todoIndex);
       /* eslint-enable no-console */
       this.todos.splice(todoIndex, 1);
+      localStorage.setItem('todos',  JSON.stringify(this.todos));
     }
   }
 }
